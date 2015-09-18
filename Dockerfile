@@ -24,8 +24,8 @@ RUN apt-get update && \
     ca-certificates supervisor
 
 # Download Kafka binary distribution
-ADD http://www.us.apache.org/dist/kafka/${KAFKA_VERSION}/${KAFKA_RELEASE_ARCHIVE} /tmp/
-ADD https://dist.apache.org/repos/dist/release/kafka/${KAFKA_VERSION}/${KAFKA_RELEASE_ARCHIVE}.md5 /tmp/
+RUN wget -qP /tmp http://www.us.apache.org/dist/kafka/${KAFKA_VERSION}/${KAFKA_RELEASE_ARCHIVE} && \
+    wget -qP /tmp/  https://dist.apache.org/repos/dist/release/kafka/${KAFKA_VERSION}/${KAFKA_RELEASE_ARCHIVE}.md5
 
 # Check artifact digest integrity
 RUN echo VERIFY CHECKSUM: && \
