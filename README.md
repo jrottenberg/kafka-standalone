@@ -10,5 +10,15 @@ Intent was to keep it as simple as possible, just to let developer easily intera
 
 It's not following docker best practices (one service per container), but it allow to get you up and running with one container.
 
-Production use Just don't ;-)
------------------------------
+### Passing topic
+
+You can pass a topic at container creation by passing the environment variable TOPIC
+
+```
+docker run -it -e TOPIC=mine jrottenberg/kafka-standalone
+```
+
+Production use
+--------------
+
+Just don't ;-)

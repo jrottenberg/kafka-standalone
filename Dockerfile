@@ -37,10 +37,15 @@ RUN echo VERIFY CHECKSUM: && \
 WORKDIR /kafka
 
 RUN tar -zx -C /kafka --strip-components=1 -f /tmp/${KAFKA_RELEASE_ARCHIVE} && \
-    rm -rf /tmp/kafka_* && mkdir -p /logs/kafka /logs/zookeeper && ln -s /logs/zookeeper /tmp/zookeeper && ln -s /logs/kafka /tmp/kafka-logs
+    rm -rf /tmp/kafka_* && \
+    mkdir -p /logs/zookepper /logs/kafka && \
+    ln -s  /logs/zookepper /tmp/zookeeper && \
+    ln -s /logs/kafka /tmp/kafka-logs && \
+    ln -s /logs/kafka logs
 
 
-RUN chown -R nobody: /kafka /logs
+
+RUN chown -R nobody: /logs
 
 VOLUME [ "/logs" ]
 
@@ -50,4 +55,4 @@ VOLUME [ "/logs" ]
 #
 ADD  start.sh /start.sh
 
-CMD ["sudo", "-u", "nobody", "/start.sh"]
+CMD ["sudo", "-u", "nobody", "-E", "/start.sh"]
