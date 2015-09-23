@@ -23,7 +23,7 @@ docker run -it -e TOPIC=mine jrottenberg/kafka-standalone
 You can specify the passing the environment variable TOPIC
 
 ```
-docker run -d -e ADVERTISED_HOSTNAME=$(hostname -f) -p 8092:8092 -p 2181:2181 jrottenberg/kafka-standalone
+docker run -d -e ADVERTISED_HOSTNAME=$(hostname -f) -p 9092:9092 -p 2181:2181 jrottenberg/kafka-standalone
 ```
 
 Production use
