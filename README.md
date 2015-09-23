@@ -18,6 +18,14 @@ You can pass a topic at container creation by passing the environment variable T
 docker run -it -e TOPIC=mine jrottenberg/kafka-standalone
 ```
 
+### Passing advertised host name
+
+You can specify the passing the environment variable TOPIC
+
+```
+docker run -it -e ADVERTISED_HOSTNAME=$(hostname -f) -p 8092:8092 -p 2181:2181 jrottenberg/kafka-standalone
+```
+
 Production use
 --------------
 
