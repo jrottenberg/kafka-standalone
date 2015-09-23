@@ -49,4 +49,4 @@ VOLUME [ "/logs" ]
 
 ADD  start.sh /start.sh
 
-CMD ["sudo", "-u", "nobody", "-E", "/start.sh"]
+CMD ["/start.sh"]

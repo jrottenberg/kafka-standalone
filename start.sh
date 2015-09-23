@@ -1,12 +1,12 @@
 #!/bin/bash
 
-bin/zookeeper-server-start.sh -daemon config/zookeeper.properties
+sudo -u nobody -E bin/zookeeper-server-start.sh -daemon config/zookeeper.properties
 
 if [[ -n ${ADVERTISED_HOSTNAME} ]]; then
   echo "advertised.host.name=${ADVERTISED_HOSTNAME}" | tee -a  config/server.properties
 fi
 
-bin/kafka-server-start.sh -daemon config/server.properties
+sudo -u nobody -E  bin/kafka-server-start.sh -daemon config/server.properties
 
 
 
