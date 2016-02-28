@@ -41,7 +41,8 @@ RUN tar -zx -C /kafka --strip-components=1 -f /tmp/${KAFKA_RELEASE_ARCHIVE} && \
     mkdir -p /logs/zookepper /logs/kafka && \
     ln -s  /logs/zookepper /tmp/zookeeper && \
     ln -s /logs/kafka /tmp/kafka-logs && \
-    ln -s /logs/kafka logs
+    ln -s /logs/kafka logs && \
+    sed -i s/log.retention.hours=168/log.retention.hours=1/g config/server.properties
 
 RUN chown -R nobody: /logs
 
